@@ -1,101 +1,72 @@
-import Image from "next/image";
+// src/app/page.tsx
+import Link from "next/link";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen flex flex-col items-center justify-center px-8 py-16">
+      <div className="text-center max-w-3xl mx-auto">
+        <h1 className="text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 mb-8">
+          Bem-vindo ao Chapada Token
+        </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+        <p className="text-xl mb-8">
+          O Chapada Token é uma criptomoeda única, criada para conectar a tecnologia digital com as belezas naturais da Chapada dos Veadeiros. Junte-se a nós e faça parte de uma revolução verde e inovadora no ecoturismo e na economia local.
+        </p>
+
+        <div className="space-y-6 text-lg mb-12">
+          <p>
+            🌿 <strong>O que é o Chapada Token?</strong>
+            <br />
+            O Chapada Token é uma moeda digital desenvolvida com o objetivo de fomentar a economia sustentável da Chapada dos Veadeiros, incentivando o turismo responsável e a colaboração entre a comunidade local e os entusiastas da tecnologia.
+          </p>
+
+          <p>
+            🌍 <strong>Porque investir no Chapada Token?</strong>
+            <br />
+            Além de ser uma criptomoeda inovadora, o Chapada Token tem como foco o desenvolvimento sustentável da região, oferecendo aos investidores a chance de fazer parte de um projeto que conecta ecoturismo, sustentabilidade e tecnologia.
+          </p>
+
+          <p>
+            💡 <strong>Tecnologia e Inovação</strong>
+            <br />
+            A Chapada Token é uma plataforma baseada em blockchain que oferece total transparência e segurança nas transações, criando um ecossistema digital que apoia tanto os turistas quanto os moradores locais.
+          </p>
+
+          <p>
+            🌱 <strong>Impacto Ambiental</strong>
+            <br />
+            Investir no Chapada Token é também investir em um futuro sustentável. Parte dos lucros serão revertidos em projetos de preservação ambiental e apoio a iniciativas de ecoturismo na Chapada dos Veadeiros.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+        <div className="flex justify-center space-x-8 mb-8">
+          <Link
+            href="https://puppy.fun/coins/522"
+            className="relative px-8 py-4 text-lg font-bold bg-gradient-to-r from-blue-500 to-purple-600 rounded-md shadow-lg button-with-lantern-comprar"
+          >
+            <span className="relative z-10">Comprar</span>
+          </Link>
+
+          <Link
+            href="/documento-tecnico"
+            className="relative px-8 py-4 text-lg font-bold bg-gradient-to-r from-orange-400 to-red-500 rounded-md shadow-lg button-with-lantern-documento"
+          >
+            <span className="relative z-10">Documento Técnico</span>
+          </Link>
+        </div>
+
+        <div className="text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-white mb-6">Junte-se à Revolução Verde!</h2>
+          <p className="text-lg mb-4">
+            O Chapada Token é mais do que uma criptomoeda. Ele é um movimento que une tecnologia, cultura e sustentabilidade. Ao investir no Chapada Token, você não está apenas comprando uma moeda digital, mas se tornando parte de um futuro mais verde, justo e próspero para a Chapada dos Veadeiros.
+          </p>
+          <p className="text-lg mb-4">
+            🚀 <strong>A hora de investir é agora!</strong> Aproveite esta oportunidade única de se envolver em um projeto que está mudando a forma como as pessoas interagem com o ecossistema local e o mundo digital.
+          </p>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;

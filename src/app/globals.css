@@ -2,20 +2,142 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Gradiente animado no fundo */
+body {
+  background: linear-gradient(to right, #43cea2 0%, #185a9d 51%, #43cea2 100%);
+  background-size: 200% auto; /* Para animação suave */
+  animation: gradientMove 5s ease infinite;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Button styles */
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.3s;
+  background: #ff7043; /* Static color for buttons */
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 112, 67, 0.5);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-grad:hover {
+  box-shadow: 0 0 15px rgba(255, 112, 67, 0.8);
+  transform: scale(1.05); /* Slight hover effect */
+}
+
+/* Cores baseadas no #FF7043 */
+:root {
+  --original-color: #FF7043; /* Cor original */
+  --light-color: #FF8A57; /* Cor mais clara */
+  --dark-color: #E65C3A; /* Cor mais escura */
+  --blue-color: #4F76E0; /* Cor para o botão "Comprar" (tom de azul) */
+  --purple-color: #7E5BE1; /* Cor para o botão "Comprar" (tom de roxo) */
+  --orange-color: #FF7043; /* Cor para o botão "Documento Técnico" (tom laranja) */
+}
+
+/* Animação de luz para o botão "Comprar" */
+@keyframes glowingLightComprar {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--blue-color), 0 0 30px var(--purple-color), 0 0 40px var(--original-color);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Animação de luz para o botão "Documento Técnico" */
+@keyframes glowingLightDocumento {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--orange-color), 0 0 30px var(--light-color), 0 0 40px var(--dark-color);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Classe para o efeito de luz nos botões */
+.button-with-lantern-documento {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.25rem; /* Tamanho do texto */
+  text-align: center;
+  border-radius: 8px;
+  background-color: transparent;
+  color: white;
+  overflow: hidden;
+  z-index: 0;
+  animation: glowingLightDocumento 2s ease-in-out infinite; /* Efeito de luz contínuo */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Inicialmente um brilho suave */
+}
+
+/* Classe para o efeito de luz nos botões */
+.button-with-lantern-comprar {
+  position: relative;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1.25rem; /* Tamanho do texto */
+  text-align: center;
+  border-radius: 8px;
+  background-color: transparent;
+  color: white;
+  overflow: hidden;
+  z-index: 0;
+  animation: glowingLightComprar 2s ease-in-out infinite; /* Efeito de luz contínuo */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Inicialmente um brilho suave */
+}
+
+/* Aplicando animação nos botões */
+.button-with-lantern.comprar {
+  animation: glowingLightComprar 2s ease-in-out infinite;
+}
+
+.button-with-lantern.documento {
+  animation: glowingLightDocumento 2s ease-in-out infinite;
+}
+
+/* Pseudo-elemento para criar a borda luminosa em torno do botão */
+.button-with-lantern::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border-radius: 12px;
+  background: transparent;
+  border: 2px solid;
+  animation: glowingLightComprar 2s ease-in-out infinite; /* Animação de luz pulsante */
+  border-color: var(--button-color); /* Cor da luz, que será a cor do botão */
+  z-index: -1; /* Coloca a luz atrás do conteúdo do botão */
 }
